@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eway Bill</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+    <style>
+        body {
+            background: rgb(122, 122, 122)
+        }
+
+        .form-control:focus {
+            box-shadow: none;   
+            border-color: #727272
+        }
+
+        .profile-button {
+            background: rgb(75, 75, 75);
+            box-shadow: none;
+            border: none
+        }
+
+        .profile-button:hover {
+            background: #1e1e1e
+        }
+
+        .profile-button:focus {
+            background: #3e3e3e;
+            box-shadow: none
+        }
+
+        .profile-button:active {
+            background: #525252;
+            box-shadow: none
+        }
+
+        .back:hover {
+            color: #000000;
+            cursor: pointer
+        }
+
+        .labels {
+            font-size: 15px
+        }
+
+        .add-experience:hover {
+            background: #545454;
+            color: #fff;
+            cursor: pointer;
+            border: solid 1px #919191
+        }
+		
+        .rounded-circle {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Express Solutions</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="file:///F:/HTML/hack/reg.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Status</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="file:///F:/HTML/hack/login.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container rounded bg-light mt-5 mb-5">
+        <div class="row">
+            <div>
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right" style="color:rgb(0, 0, 0);">Status</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-11">
+                            <label class="labels" style="color:rgb(0, 0, 0);">RFID Number</label>
+                            <input id="rfidInput" type="text" class="form-control" placeholder="Enter RFID number" value="">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-primary profile-button" type="button" onclick="showEnteredRFID()">Submit</button>
+                    </div>
+                    <div class="mt-3">
+                        <p id="enteredRFID" style="color:rgb(0, 0, 0);"></p>
+                        <p id="vehicleStatus" style="color:rgb(0, 0, 0);"></p>
+                        <p id="sealeddate" style="color:rgb(0, 0, 0);"></p>
+                        <p id="sealedtime" style="color:rgb(0, 0, 0);"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function showEnteredRFID() {
+            var rfid = document.getElementById("rfidInput").value;
+
+            // Update the HTML element with the entered RFID number
+            document.getElementById("enteredRFID").innerText = "RFID NUMBER: " + rfid;
+            document.getElementById("vehicleStatus").innerText = "Vehicle-Status: In Shipping";
+
+            // Generate random date and time
+            var currentDate = new Date();
+            var randomDate = new Date(currentDate.getTime() + Math.random() * 100000000000);
+            var formattedDate = randomDate.toLocaleDateString();
+            var formattedTime = randomDate.toLocaleTimeString();
+
+            document.getElementById("sealeddate").innerText = "Sealed-Date: " + formattedDate;
+            document.getElementById("sealedtime").innerText = "Sealed-Time: " + formattedTime;
+        }
+    </script>
+</body>
+</html>

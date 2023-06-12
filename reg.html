@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Eway Bill</title>
+    <!-- Bootstrap CSS CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha256-h20CPZ0QyXlBuAw7A+KluUYx/3pK+c7lYEpqLTlxjYQ=" crossorigin="anonymous" />
+
+    <style>
+        body {
+            background: rgb(122, 122, 122)
+        }
+
+        .form-control:focus {
+            box-shadow: none;   
+            border-color: #727272
+        }
+
+        .profile-button {
+            background: rgb(75, 75, 75);
+            box-shadow: none;
+            border: none
+        }
+
+        .profile-button:hover {
+            background: #1e1e1e
+        }
+
+        .profile-button:focus {
+            background: #3e3e3e;
+            box-shadow: none
+        }
+
+        .profile-button:active {
+            background: #525252;
+            box-shadow: none
+        }
+
+        .back:hover {
+            color: #000000;
+            cursor: pointer
+        }
+
+        .labels {
+            font-size: 15px
+        }
+
+        .add-experience:hover {
+            background: #545454;
+            color: #fff;
+            cursor: pointer;
+            border: solid 1px #919191
+        }
+		
+        .rounded-circle {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Express Solutions</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="file:///F:/HTML/hack/status.html">Status</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="file:///F:/HTML/hack/login.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container rounded bg-light mt-5 mb-5">
+        <div class="row">
+            <div>
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h4 class="text-right" style="color:rgb(0, 0, 0);">Generate RFID Number</h4>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-md-8">
+                            <label class="labels" style="color:rgb(0, 0, 0);">E-way Bill Number</label>
+                            <input type="text" class="form-control" placeholder="E-way number" value="">
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <button class="btn btn-primary profile-button" type="button" onclick="generateRFID()">Generate RFID</button>
+                    </div>
+                    <div class="mt-3">
+                        <p id="rfidNumber" style="color:rgb(0, 0, 0);"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function generateRFID() {
+            // Generate a random RFID number (example: 10-digit alphanumeric)
+            var rfid = generateRandomRFID(10);
+
+            // Display the generated RFID number on the page
+            document.getElementById("rfidNumber").innerText = "Generated RFID Number: " + rfid;
+        }
+
+        function generateRandomRFID(length) {
+            var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            var result = "";
+
+            for (var i = 0; i < length; i++) {
+                var randomIndex = Math.floor(Math.random() * characters.length);
+                result += characters.charAt(randomIndex);
+            }
+
+            return result;
+        }
+    </script>
+</body>
+</html>
